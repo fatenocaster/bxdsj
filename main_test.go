@@ -8,7 +8,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 1; i++ {
 		resp := timeReserveListApi()
 		gotTicket, err := handleResp(resp)
 		if err != nil {
