@@ -1,0 +1,18 @@
+POST /lotsapi/product/api/product/timeReserveList HTTP/1.1
+Host: wap.lotsmall.cn
+Accept: application/json, text/plain, */*
+Trace_device_id: 
+User-Agent: Mozilla/5.0 (Linux; Android 11; Nexus 6 Build/RQ3A.211001.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3262 MMWEBSDK/201201 Mobile Safari/537.36 MMWEBID/8212 MicroMessenger/8.0.1840(0x2800003A) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm32
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Origin: https://wap.lotsmall.cn
+X-Requested-With: com.tencent.mm
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://wap.lotsmall.cn/vue/order/ticket?scenicId=1566&ticketId=133428&m_id=381
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+Content-Length: 175
+
+endTime=2024-01-09&externalCode=PST20231227825706&merchantId=381&merchantInfoId=381&modelCode=MP2023122717171632116&startTime=2024-01-06&xj_time_stamp_2019_11_28=
