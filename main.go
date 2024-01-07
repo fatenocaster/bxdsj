@@ -50,8 +50,35 @@ func executeEvery(d time.Duration) {
 				time.Sleep(5 * time.Minute)
 
 			}
+			resp = timeReserveListApiFamily()
+			gotTicket, err = handleRespFamily(resp)
 		}
 	}
+}
+func handleRespFamily(resp string) (bool, error) {
+	//解析json
+	var result Result
+	err := json.Unmarshal([]byte(resp), &result)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return false, err
+	}
+
+	for _, item := range result.Data {
+		fmt.Println("Family ticket!!! OccDate:", item.OccDate, "Num:", item.Num)
+		// if item.OccDate == target_date || item.OccDate == test_date ||
+		// 	strings.Contains(item.OccDate, "2-17") ||
+		// 	strings.Contains(item.OccDate, "1-12") ||
+		// 	strings.Contains(item.OccDate, "1-08") {
+		if item.Num > 0 {
+			for i := 0; i < 10; i++ {
+				sendMsg(item.OccDate+"臻享家庭票", item.Num)
+				return true, nil
+			}
+		}
+		// }
+	}
+	return false, nil
 }
 
 var target_date string
@@ -71,7 +98,7 @@ func main() {
 	} else {
 		test_date = "2024-01-07"
 	}
-	// sendMsg(test_date, 10)
+	sendMsg(test_date, 10)
 	executeEvery(1 * time.Minute)
 	// executeEvery(5 * time.Second)
 }
@@ -230,6 +257,65 @@ func timeReserveListApi() string {
 	fmt.Println(resp)
 
 	//帮我解析如下结果{"data":[{"stockCode":"SC221210111820072","num":0,"startTime":"11:00","endTime":"21:30","occDate":"2024-01-06","name":"","fsStatus":"T"},{"stockCode":"SC221210111820072","num":0,"startTime":"11:00","endTime":"21:30","occDate":"2024-01-07","name":"","fsStatus":"T"},{"stockCode":"SC221210111820072","num":0,"startTime":"11:00","endTime":"21:30","occDate":"2024-01-08","name":"","fsStatus":"T"},{"stockCode":"SC221210111820072","num":0,"startTime":"11:00","endTime":"21:30","occDate":"2024-01-09","name":"","fsStatus":"T"}],"status":200}
+
+	return resp
+}
+
+func timeReserveListApiFamily() string {
+	//构造下面注释的包进行发送,https
+	/*
+	   POST /lotsapi/product/api/product/timeReserveList HTTP/1.1
+	   Host: wap.lotsmall.cn
+	   Accept: application/json, text/plain,
+	   Trace_device_id:
+	   User-Agent: Mozilla/5.0 (Linux; Android 11; Nexus 6 Build/RQ3A.211001.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3262 MMWEBSDK/201201 Mobile Safari/537.36 MMWEBID/8212 MicroMessenger/8.0.1840(0x2800003A) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm32
+	   Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+	   Origin: https://wap.lotsmall.cn
+	   X-Requested-With: com.tencent.mm
+	   Sec-Fetch-Site: same-origin
+	   Sec-Fetch-Mode: cors
+	   Sec-Fetch-Dest: empty
+	   Referer: https://wap.lotsmall.cn/vue/order/ticket?scenicId=1566&ticketId=133428&m_id=381
+	   Accept-Encoding: gzip, deflate
+	   Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+	   Connection: close
+	   Content-Length: 175
+
+	   endTime=2024-01-09&externalCode=PST20231227825706&merchantId=381&merchantInfoId=381&modelCode=MP2023122717171632116&startTime=2024-01-06&xj_time_stamp_2019_11_28=
+	*/
+	fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
+	headers := map[string]string{
+		"User-Agent":   "Mozilla/5.0 (Linux; Android 11; Nexus 6 Build/RQ3A.211001.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3262 MMWEBSDK/201201 Mobile Safari/537.36 MMWEBID/8212 MicroMessenger/8.0.1840(0x2800003A) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm32",
+		"Referer":      "https://wap.lotsmall.cn/vue/order/ticket?scenicId=1566&ticketId=133428&m_id=381",
+		"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+	}
+	host := "https://wap.lotsmall.cn"
+	url := "/lotsapi/product/api/product/timeReserveList"
+
+	target := host + url
+	starttime := "2024-01-06"
+	endtime := "2024-01-09"
+	//starttime 设置为当天
+	//endtime 设置为当天+3
+
+	t := time.Now()
+	starttime = t.Format("2006-01-02")
+
+	tmp := time.Now()
+	tmp = tmp.AddDate(0, 0, 7)
+	endtime = tmp.Format("2006-01-02")
+
+	body := fmt.Sprintf("endTime=%s&externalCode=PST20231227825706&merchantId=381&merchantInfoId=381&modelCode=MP2023122717171632116&startTime=%s&xj_time_stamp_2019_11_28=",
+		endtime, starttime)
+
+	body = "endTime=2024-02-17&externalCode=PST20231202813329&merchantId=381&merchantInfoId=381&modelCode=MP2023121320020822826&startTime=2024-02-17&xj_time_stamp_2019_11_28="
+
+	resp, err := PostRequest(target, headers, body)
+	if err != nil {
+		fmt.Println("臻享家庭票 Error:", err)
+		return err.Error()
+	}
+	fmt.Println(resp)
 
 	return resp
 }
