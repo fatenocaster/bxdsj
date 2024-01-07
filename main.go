@@ -72,7 +72,7 @@ func handleRespFamily(resp string) (bool, error) {
 		// 	strings.Contains(item.OccDate, "1-08") {
 		if item.Num > 0 {
 			for i := 0; i < 10; i++ {
-				sendMsg(item.OccDate+"臻享家庭票", item.Num)
+				sendMsg(item.OccDate+"臻享家庭票!!!", item.Num)
 				return true, nil
 			}
 		}
@@ -98,7 +98,7 @@ func main() {
 	} else {
 		test_date = "2024-01-07"
 	}
-	sendMsg(test_date, 10)
+	// sendMsg(test_date, 10)
 	executeEvery(1 * time.Minute)
 	// executeEvery(5 * time.Second)
 }
