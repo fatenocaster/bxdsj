@@ -99,7 +99,7 @@ func main() {
 	if len(os.Args) > 1 {
 		test_date = os.Args[1]
 	} else {
-		test_date = "2024-01-07"
+		test_date = "2024-01-08"
 	}
 	// sendMsg(test_date, 10)
 	executeEvery(1 * time.Minute)
