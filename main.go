@@ -9,6 +9,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	serverChan "github.com/zhangyiming748/serverChan"
 )
 
 type Result struct {
@@ -73,6 +75,7 @@ func handleRespFamily(resp string) (bool, error) {
 		if item.Num > 0 {
 			for i := 0; i < 10; i++ {
 				sendMsg(item.OccDate+"臻享家庭票!!!", item.Num)
+				sendServerJiangMsg(item.OccDate+"臻享家庭票!!!", item.Num)
 				return true, nil
 			}
 		}
@@ -89,7 +92,7 @@ func main() {
 	//每个固定时间执行一次
 	//定时任务
 	//打印当前时间
-
+	sendServerJiangMsg("2024-01-07", 10)
 	target_date = "2024-02-17"
 	// 参数获取一个日期
 
@@ -142,6 +145,21 @@ func sendMsg(date string, num int) {
 	fmt.Println(string(body))
 }
 
+func sendServerJiangMsg(date string, num int) {
+	msg := &serverChan.Req{
+		Title:   fmt.Sprintf("冰雪大世界 %s ,%d 张!!", date, num),
+		Desp:    fmt.Sprintf("报告小奇哥,冰雪大世界出票啦, %s ,%d 张!!", date, num),
+		Short:   "任务摘要", // 看起来不支持
+		Channel: "9",    // 看起来不支持两个通道
+	}
+	key := "SCT235585TGx1xqpl3hr5abPZj9NUfNb8k"
+	_, err := serverChan.Send(msg, key)
+	if err != nil {
+		return
+	}
+
+}
+
 func handleResp(resp string) (bool, error) {
 	//解析json
 	var result Result
@@ -159,6 +177,7 @@ func handleResp(resp string) (bool, error) {
 			strings.Contains(item.OccDate, "1-08") {
 			if item.Num > 0 {
 				sendMsg(item.OccDate, item.Num)
+				sendServerJiangMsg(item.OccDate, item.Num)
 				return true, nil
 			}
 		}
