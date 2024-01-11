@@ -11,3 +11,8 @@ DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushi
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151720044 Readkey:SCTmIND43BZeuFE Error:SUCCESS Errno:0}}
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151720346 Readkey:SCTWEWd7lPP0X5e Error:SUCCESS Errno:0}}
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151720655 Readkey:SCTZnj2QaHKgEpK Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151721256 Readkey:SCTLBMHU6NAeoxd Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151722500 Readkey:SCTfjQE4yF8aoVv Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:151723147 Readkey:SCTTZiou1V7whYC Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:152129262 Readkey:SCTmMZIfw5adcwC Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:152137403 Readkey:SCTQ2GWUGGDl4mV Error:SUCCESS Errno:0}}
