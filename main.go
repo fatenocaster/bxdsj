@@ -179,8 +179,8 @@ func handleResp(resp string) (bool, error) {
 		fmt.Println("OccDate:", item.OccDate, "Num:", item.Num)
 		if item.OccDate == target_date || item.OccDate == test_date ||
 			strings.Contains(item.OccDate, "2-17") ||
-			strings.Contains(item.OccDate, "1-15") ||
-			strings.Contains(item.OccDate, "1-16") {
+			strings.Contains(item.OccDate, "1-25") ||
+			strings.Contains(item.OccDate, "1-26") {
 			if item.Num > 0 {
 				sendMsg(item.OccDate, item.Num)
 				sendServerJiangMsg(item.OccDate, item.Num)
