@@ -140,6 +140,12 @@ func sendMsg(date string, num int) {
 	//设置请求头
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	//发送请求
+	//如果是晚上8点以后到第二天早上8点之间，不发送消息
+	t := time.Now()
+	if t.Hour() > 20 || t.Hour() < 8 {
+		fmt.Println("晚上8点以后到第二天早上8点之间，不发送消息")
+		return
+	}
 	resp, err := client.Do(req)
 	//关闭请求
 	defer resp.Body.Close()
