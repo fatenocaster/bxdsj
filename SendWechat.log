@@ -23,3 +23,17 @@ DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushi
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:152830371 Readkey:SCTnEYvnIJyrPrP Error:SUCCESS Errno:0}}
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:152830390 Readkey:SCThuBHJmtZwabM Error:SUCCESS Errno:0}}
 DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153152430 Readkey:SCTHMVMgeweSLjk Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153174929 Readkey:SCTyrzbTdY979I5 Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153234952 Readkey:SCT8O9ZdFoVboAu Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153235629 Readkey:SCT1afV7AtplO2j Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153236186 Readkey:SCTx5s3UpafDBE5 Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153237489 Readkey:SCTwhFYTlLvQKST Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153240920 Readkey:SCTN6osHk3F62m7 Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153722101 Readkey:SCT5LRvCkVTrIfL Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153722355 Readkey:SCTZb2lsR8YAUsh Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153724147 Readkey:SCT6oxjoYMqFjtv Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153725046 Readkey:SCTP4eyETd8hrQV Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153726522 Readkey:SCT9dtRI7F1RFqn Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153726819 Readkey:SCTqsM5Nys3omHx Error:SUCCESS Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:40001 Message:[AUTH]超过当天的发送次数限制[5]，请稍后再试 Data:{Pushid: Readkey: Error: Errno:0}}
+DEBUG:send.go:49: 此次请求返回的状态信息:{Code:0 Message: Data:{Pushid:153817696 Readkey:SCTzTfikIGA66gf Error:SUCCESS Errno:0}}
