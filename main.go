@@ -149,6 +149,19 @@ func sendMsg(date string, num int) {
 	resp, err := client.Do(req)
 	//关闭请求
 	defer resp.Body.Close()
+	//追加写入日志
+	fileName := "log.txt"
+	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("打开文件错误:", err)
+		return
+	}
+	defer f.Close()
+	//时间也写进入
+	_, err = f.WriteString(time.Now().Format("2006-01-02 15:04:05") + "\n")
+	_, err = f.WriteString(msg + "\n")
+
+	//读取响应
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
