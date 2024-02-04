@@ -131,6 +131,10 @@ func sendMsg(date string, num int) {
          }
        }`
 	//创建一个请求
+	if strings.Contains(date, "02-04") {
+		fmt.Println("%d 不发消息", date)
+		return
+	}
 	req, err := http.NewRequest("POST", webHook, strings.NewReader(content))
 	if err != nil {
 		fmt.Println(err)
