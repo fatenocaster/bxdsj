@@ -131,7 +131,7 @@ func sendMsg(date string, num int) {
          }
        }`
 	//创建一个请求
-	if strings.Contains(date, "02-04") {
+	if strings.Contains(date, "02-08") {
 		fmt.Println("%d 不发消息", date)
 		return
 	}
